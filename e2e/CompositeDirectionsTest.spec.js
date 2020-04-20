@@ -50,12 +50,10 @@ describe("Composite Directions Feature", () => {
     await expect(element(by.id("PreviewDirections_MapView"))).toExist();
     await expect(element(by.id("BottomMenu_PreferenceStartButton"))).toBeVisible();
     await element(by.id("BottomMenu_PreferenceStartButton")).tap();
-    await expect(element(by.id("Directions_GoToNextInstructionButton"))).toBeVisible();
-    await element(by.id("Directions_GoToNextInstructionButton")).tap();
-    await expect(element(by.id("Directions_GoToNextInstructionButton"))).toBeVisible();
-    await element(by.id("Directions_GoToNextInstructionButton")).tap();
-    await expect(element(by.id("Directions_GoToNextInstructionButton"))).toBeVisible();
-    await element(by.id("Directions_GoToNextInstructionButton")).tap();
+    for (let i = 0; i < 3; i++) {
+      await expect(element(by.id("Directions_GoToNextInstructionButton"))).toBeVisible();
+      await element(by.id("Directions_GoToNextInstructionButton")).tap();
+    }
     await expect(element(by.id("Directions_InsideBuildingIcon_L2"))).toBeVisible();
     await element(by.id("Directions_InsideBuildingIcon_L2")).tap();
     await expect(element(by.id("IndoorMapView_FloorScrollView"))).toBeVisible();

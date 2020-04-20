@@ -20,7 +20,7 @@ import { sideMenuStyle } from "../../assets/styling/sideMenuStyling";
  * @param  {} navigation props.navigation is the name of the object from Navigator library
  */
 
-function NearbyInterestDetails (props) {
+function NearbyInterestDetails(props) {
     /**
      * navigation that serves to go back to previous screen
      * @param  {} =>{props.navigation.goBack(
@@ -149,7 +149,7 @@ function NearbyInterestDetails (props) {
                     </View>
                 </Button>
 
-                <Button transparent style={styles.routeButton} onPress={goToDoubleSearch}>
+                <Button testID="NearbyInterestDetails_GetDirectionButton" transparent style={styles.routeButton} onPress={goToDoubleSearch}>
                     <Text style={styles.viewRouteText}>Get Directions</Text>
                 </Button>
 
