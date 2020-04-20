@@ -138,10 +138,11 @@ describe("Indoor Directions Feature", () => {
     //TODO: Find a solution for asserting the path shown on the map
   });
 
-  /** Scenario: Getting Directions from 1 room to another room on different floors
+  /** Scenario: Getting Directions from 1 room to another room on different floors (with disabiliry)
    * US-15 : As a user, I want to be able to view directions on the map
    * US-25 : AS a user, I would like to be able to search for a room
    * US-26 : As a user, I would like to be able to set a room as my start or destination
+   * US-29 : As a user, I would like to be able to show path optimized for access by students with disabilities
    * US-31 : As a user, I would like to be able to generate directions to rooms between floors
    * 1. Click on the search bar
    * 2. Enter the number of a room: "H813"
@@ -157,7 +158,7 @@ describe("Indoor Directions Feature", () => {
    * 12. Select the TO room floor (8th floor)
    * 13. Check that the path on the TO floor exists
    */
-  it("Getting directions from 1 room to another room on different floors", async () => {
+  it.skip("Getting directions from 1 room to another room on different floors (with disability)", async () => {
     await element(by.id("Map_searchBar")).tap();
     await element(by.id("Map_searchBar")).typeText("H819");
     await element(by.id("Map_searchBar")).tapAtPoint({ x: 200, y: 75 });
