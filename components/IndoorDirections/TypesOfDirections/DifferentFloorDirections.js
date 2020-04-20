@@ -77,7 +77,7 @@ export function DifferentFloorDirections (props) {
                 }
                 <Line x1={rooms[className].x} y1={rooms[className].y} x2={rooms[className].nearestPoint.x} y2={rooms[className].nearestPoint.y} stroke="blue" strokeWidth="5" />
                 <Line x1={arrow.x3} y1={arrow.y3} x2={rooms[className].x} y2={rooms[className].y} stroke="blue" strokeWidth="5" />
-                <Line x1={arrow.x4} y1={arrow.y4} x2={rooms[className].x} stroke="blue" strokeWidth="5" />
+                <Line x1={arrow.x4} y1={arrow.y4} x2={rooms[className].x} y2={rooms[className].y} stroke="blue" strokeWidth="5" />
             </G>
         );
     }
