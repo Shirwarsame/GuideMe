@@ -102,7 +102,7 @@ function BottomMenu(props) {
     if (viewIndoor) {
         return (
             <View style={styles.insideBuildingContainer} data-test="BottomMenu" testID="bottomMenuInitalView">
-                <Icon name="ios-arrow-up" style={styles.arrowUp} onPress={() => { (inDirections ? goToPreferenceMenu(true) : goToMoreDetails) }} />
+                <Icon testID="BottomMenu_IndoorArrowUpToPreferenceMenu" name="ios-arrow-up" style={styles.arrowUp} onPress={() => { (inDirections ? goToPreferenceMenu(true) : goToMoreDetails) }} />
                 <Text style={styles.mainLabel}>{building ? building : selectedBuilding}</Text>
                 <Text style={styles.shortLabel}>More info</Text>
                 <Button testID="BottomMenu_IndoorMapExitBuildingButton" style={styles.btnleave} color={"#3ACCE1"} uppercase={false} mode="contained" onPress={goBack}>
