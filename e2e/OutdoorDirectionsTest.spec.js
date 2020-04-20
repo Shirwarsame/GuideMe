@@ -165,12 +165,10 @@ describe("Outdoor Directions Feature", () => {
     await expect(element(by.id("PreviewDirections_MapView"))).toExist();
     await expect(element(by.id("BottomMenu_PreferenceStartButton"))).toBeVisible();
     await element(by.id("BottomMenu_PreferenceStartButton")).tap();
-    await expect(element(by.id("Directions_GoToNextInstructionButton"))).toBeVisible();
-    await element(by.id("Directions_GoToNextInstructionButton")).tap();
-    await expect(element(by.id("Directions_GoToNextInstructionButton"))).toBeVisible();
-    await element(by.id("Directions_GoToNextInstructionButton")).tap();
-    await expect(element(by.id("Directions_GoToNextInstructionButton"))).toBeVisible();
-    await element(by.id("Directions_GoToNextInstructionButton")).tap();
+    for (let i = 0; i < 3; i++) {
+      await expect(element(by.id("Directions_GoToNextInstructionButton"))).toBeVisible();
+      await element(by.id("Directions_GoToNextInstructionButton")).tap();
+    }
     //TODO: Find a solution for asserting the path shown on the map
   });
 });

@@ -5,7 +5,7 @@ import { StyleSheet, TouchableOpacity } from "react-native";
 import MapView, { Polyline, PROVIDER_GOOGLE } from "react-native-maps";
 import HTML from "react-native-render-html";
 import CurrentLocationButton from "../components/CurrentLocationButton";
-import {darkMode} from "../assets/styling/mapDarkMode";
+import { darkMode } from "../assets/styling/mapDarkMode";
 import { store } from "../redux/reducers/index";
 
 /**
@@ -166,7 +166,7 @@ function Directions(props) {
                 showsBuildings={true}
                 onLayout={initMapRegion}
                 showsIndoors={false}
-                customMapStyle = {isDarkedMode ? darkMode : []} 
+                customMapStyle={isDarkedMode ? darkMode : []}
             >
                 {destinationResponse ? destinationResponse.steps.map((step, index) => (
                     <Polyline key={index}
@@ -217,7 +217,7 @@ function Directions(props) {
             }
             {
                 isFirstInstruction && (indoorScenario1) &&
-                <TouchableOpacity testID="Directions_InsideBuildingIcon_F1"style={styles.indoorBuilding}>
+                <TouchableOpacity testID="Directions_InsideBuildingIcon_F1" style={styles.indoorBuilding}>
                     <View>
                         <Icon type="FontAwesome5" name="building" onPress={() => { props.navigation.navigate("IndoorMapView", { From: destinationResponse.generalRouteInfo.isStartAddressClassRoom, To: destinationResponse.generalRouteInfo.endAddress }) }} />
                     </View>
