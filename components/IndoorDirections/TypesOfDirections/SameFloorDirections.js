@@ -51,9 +51,9 @@ export function SameFloorDirections (props) {
     if(props.floor == floor) {
         return(
             <G testID="SameFloorDirections_GraphDirections">
-                <Line x1={rooms[from].x} y1={rooms[from].y} x2={rooms[from].nearestPoint.x} y2={rooms[from].nearestPoint.y} stroke="blue" strokeWidth="5"/>
+                <Line testID="SameFloorDirections_LineDirectionsPath" x1={rooms[from].x} y1={rooms[from].y} x2={rooms[from].nearestPoint.x} y2={rooms[from].nearestPoint.y} stroke="blue" strokeWidth="5"/>
                 {
-                    lines.map(el => <Line key={el.id} x1={el.x1} y1={el.y1} x2={el.x2} y2={el.y2} stroke="blue" strokeWidth="5" />)
+                    lines.map(el => <Line testID="SameFloorDirections_LineDirectionsElement" key={el.id} x1={el.x1} y1={el.y1} x2={el.x2} y2={el.y2} stroke="blue" strokeWidth="5" />)
                 }
                 <Line x1={rooms[to].x} y1={rooms[to].y} x2={rooms[to].nearestPoint.x} y2={rooms[to].nearestPoint.y} stroke="blue" strokeWidth="5" />
                 <Line x1={arrow.x3} y1={arrow.y3} x2={rooms[to].x} y2={rooms[to].y} stroke="blue" strokeWidth="5" />

@@ -84,5 +84,48 @@ describe("Indoor Directions Feature", () => {
     await element(by.id("DoubleSearch_enabledViewRouteButton")).tap();
     await element(by.id("IndoorMapView_FloorScrollView")).swipe("left", "fast");
     //await expect(element(by.id("SameFloorDirections_GraphDirections"))).toExist();
+    //TODO: Find a solution for asserting the path shown on the map
+    await expect(element(by.id("SameFloorDirections_GraphDirections"))).toExist();
+    await expect(element(by.id("SameFloorDirections_LineDirectionsPath"))).toExist();
+    await expect(element(by.id("SameFloorDirections_LineDirectionsElement"))).toExist();
+  });
+
+    /**Scenario: Get directions to an indoor point of interest
+    * US-15 : As a user, I want to be able to view directions on the map
+    * US-25 : AS a user, I would like to be able to search for a room
+    * US-26 : As a user, I would like to be able to set a room as my start or destination
+    * 1. Click on the search bar
+    * 2. Enter the number of a room: "H813"
+    * 3. Select the corresponding item from the dropdown list
+    * 4. Click on GET DIRECTIONS button
+    * 5. Check that TO search bar is filled with "H813"
+    * 6. Click on the FROM search bar
+    * 7. Enter the number of a room on the same floor: "H820"
+    * 8. Select the corresponding item from the dropdown list
+    * 9. Click on VIEW ROUTE
+    * 10. Check that you are on the floor corresponding to the directions (8th floor)
+    * 11. Check that the directions path exists
+    */
+   it.skip("Get directions to an indoor point of interest", async () => {
+    await element(by.id("Map_searchBar")).tap();
+    await element(by.id("Map_searchBar")).typeText("water");
+    await element(by.id("Map_searchBar")).tapAtPoint({ x: 200, y: 75 });
+    await element(by.id("BottomMenu_getDirectionsButton")).tap();
+    //TODO: Fix the workaround (next line) to check that "H813" is written in the To search bar  
+    await expect(element(by.label("Water Fountain"))).toExist();
+    await element(by.id("DoubleSearch_FromSearchBarView")).tap();
+    await element(by.id("DoubleSearch_FromSearchBarView")).typeText("H853");
+    await element(by.id("DoubleSearch_FromSearchBarView")).tapAtPoint({ x: 200, y: 80 });
+    await element(by.id("DoubleSearch_enabledViewRouteButton")).tap();
+    await element(by.id("IndoorMapView_FloorScrollView")).swipe("left", "fast");
+    await element(by.id("BottomMenu_IndoorMapExitBuildingButton")).tap();
+    await expect(element(by.id("DoubleSearch_ScreenView"))).toBeVisible();
+    await element(by.id("DoubleSearch_ToSearchBarView")).tap();
+    await element(by.id("DoubleSearch_ToSearchBarView")).tapBackspaceKey();
+    await element(by.id("DoubleSearch_ToSearchBarView")).typeText("Men's");
+    await element(by.id("DoubleSearch_ToSearchBarView")).tapAtPoint({ x: 200, y: 80 });
+    await element(by.id("DoubleSearch_enabledViewRouteButton")).tap();
+    //await expect(element(by.id("SameFloorDirections_GraphDirections"))).toExist();
+    //TODO: Find a solution for asserting the path shown on the map
   });
 });
